@@ -1,4 +1,6 @@
 // import 'package:art_gallery_app_ui/screens/home_screen.dart';
+
+import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,9 +17,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BottomNavBar(),
+    final ThemeController themeController = Get.put(ThemeController());
+    return Obx(
+      () => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+
+        theme: themeController.isDarkMode.value
+            ? ThemeData.dark()
+            : ThemeData.light(),
+        home: const BottomNavBar(),
+      ),
     );
   }
 }
