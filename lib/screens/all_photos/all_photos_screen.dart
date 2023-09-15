@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'package:art_gallery_app_ui/screens/explore/explore_controller.dart';
+import 'package:art_gallery_app_ui/screens/all_photos/all_photos_controller.dart';
 import 'package:art_gallery_app_ui/screens/viewer_screen/viewer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,14 +10,14 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class ExploreScreen extends StatefulWidget {
-  const ExploreScreen({super.key});
+class AllPhotosScreen extends StatefulWidget {
+  const AllPhotosScreen({super.key});
 
   @override
-  _ExploreScreenState createState() => _ExploreScreenState();
+  _AllPhotosScreenState createState() => _AllPhotosScreenState();
 }
 
-class _ExploreScreenState extends State<ExploreScreen> {
+class _AllPhotosScreenState extends State<AllPhotosScreen> {
   ExploreController controller = Get.put(ExploreController());
 
   @override

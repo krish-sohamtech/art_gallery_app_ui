@@ -1,9 +1,9 @@
-import 'package:art_gallery_app_ui/screens/explore/explore_screen.dart';
-import 'package:art_gallery_app_ui/screens/folder/home_screen.dart';
+import 'package:art_gallery_app_ui/screens/all_photos/all_photos_screen.dart';
+import 'package:art_gallery_app_ui/screens/collection/collection_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
-import '../screens/home/global_screen.dart';
+import '../screens/global/global_screen.dart';
 import '../screens/setting/setting_screen.dart';
 import 'bottom_navbar_cnt.dart';
 
@@ -16,12 +16,10 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> pages = [
-    const ExploreScreen(),
-    const HomePage(),
+    const AllPhotosScreen(),
+    const Collection(),
     const GlobalPage(),
     SettingsPage(),
-
-
   ];
   BottomNavController controller = Get.put(BottomNavController());
 
@@ -38,8 +36,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           onPressed: () {
             // Add your action for the floating action button here
           },
-          child: const Icon(Icons.add),
           backgroundColor: AppColors.cherryRed,
+          child: const Icon(Icons.add),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: Obx(
