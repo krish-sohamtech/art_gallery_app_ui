@@ -7,16 +7,7 @@ class ViewerPage extends StatelessWidget {
   final Medium medium;
   const ViewerPage(this.medium, {super.key});
 
-  void deleteImage() async {
-    try {
-      print(medium.id);
-      await PhotoGallery.deleteMedium(mediumId: medium.id)
-          .whenComplete(() => Navigator.of(Get.context!).pop());
-    } catch (e) {
-      print("Error deleting image: $e");
-    }
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     ThemeController data = Get.put(ThemeController());
@@ -39,7 +30,9 @@ class ViewerPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
-              onTap: deleteImage, // Call the deleteImage method here
+              onTap: () {
+                
+              }, 
               child: Icon(
                 Icons.delete,
                 color: data.isDarkMode.value
