@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'dart:async';
 
 class Collection extends StatefulWidget {
   const Collection({super.key});
@@ -20,9 +21,8 @@ class _CollectionState extends State<Collection> {
   @override
   void initState() {
     super.initState();
-    if (photosController.loading_.value) {
-      initAsync();
-    }
+    photosController.setLoading(true);
+    initAsync();
   }
 
   Future<void> initAsync() async {
@@ -177,15 +177,21 @@ class AlbumPage extends StatefulWidget {
 class AlbumPageState extends State<AlbumPage> {
   List<Medium>? _media;
 
+  AllPhotosController photosController = Get.put(AllPhotosController());
+
   @override
   void initState() {
     super.initState();
+//  photosController.setLoading(true);
     initAsync();
   }
 
+
   void initAsync() async {
     MediaPage mediaPage = await widget.album.listMedia();
-     AllPhotosController().setMedia(mediaPage.items);
+    setState(() {
+      _media = mediaPage.items;
+    });
   }
 
   ThemeController data = Get.put(ThemeController());

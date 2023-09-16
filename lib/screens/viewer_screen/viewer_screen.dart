@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
@@ -30,9 +31,7 @@ class ViewerPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
-              onTap: () {
-                
-              }, 
+              onTap: deleteImage, 
               child: Icon(
                 Icons.delete,
                 color: data.isDarkMode.value
@@ -84,4 +83,24 @@ class ViewerPage extends StatelessWidget {
       ),
     );
   }
+  void deleteImage() async {
+
+  try {
+     await PhotoGallery.deleteMedium(mediumId: medium.id);
+      ScaffoldMessenger.of(Get.context!).showSnackBar(
+        const SnackBar(
+          content: Text("Image deleted successfully."),
+        ),
+      );
+      
+      // You may also consider returning to the previous screen if needed:
+      Navigator.of(Get.context!).pop();
+  
+  } catch (e) {
+    if (kDebugMode) {
+      print("Error deleting image: $e");
+    }
+    // Handle any errors that may occur during deletion.
+  }
+}
 }

@@ -1,8 +1,309 @@
-class DomeData {
-  String image1 = 'https://s3-alpha-sig.figma.com/img/c4b4/b3ad/2f40ccca7a634230c963b832a945f6c2?Expires=1695600000&Signature=qGVq4lPrIjL819HHz3bVecghoreLamYuevPJATDuHgbxuG90yNWUUZ56raDzMh-jdBE0e171aV128kbZxm9u01N3q6jZgvQkGlNNmHoblZN901yM3vggV42d5zHcQMopgeZn~vdnUQ7Nqa1Hhe7cHc5-O7d7MZXW7UZewqiDTriumjzsF3jxQQEG1V~ombzVzUBXKafnaOi0Z3MWGVBSW7HlZrjud-sHSpAo3J2wT3o~p4Hqj2u6~IOYIkN6ob8vXEbTrM5x5K2gsJ48B2wbDjUQVjGaflD~qKtEmZ93JCutdtEWdT-HeBV3dzNt2lN0IF5-bVjgMUiFyG2j1~wbMg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' ;
-  String image2 ='https://s3-alpha-sig.figma.com/img/3578/7358/8a30bdde12665240eedadad62258698f?Expires=1695600000&Signature=auI9ycUZ0vzRZWFFqP5KWFKK-TUDiefM067aEBRsWpoQiZHxGZKoW4W9bSFOgen0iN-F3DZh~eQOlj-FVcWpTM0Y5qGnNoPpFyF1sQoRP~E2Bgk~Xj-kWOwzlaP6yMmIp9frX5n4sE2Sp8SM4LMddF-gVJeLDk9oBQqC9S~WKetH1oSdaisHvJc7lEHtqc4rRYAKviQRPZxfGSJL2bzbKkDqk3twHLBLHqVkzAvsPSRO1UiiA9MVi2RP5XJoXQBgM8OBKwUw~f4UoHfwmGriSMxPtatpcWRJMQ90Ib5TJsZX~ZMPOYQ8bMXEMWuPNrV5sZj-yGVdoTGdjDlNiJyyPQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-  String image3 ='https://s3-alpha-sig.figma.com/img/662e/dfb6/284f3208f792c89bc810c3044713d786?Expires=1695600000&Signature=Rjh81-ycBOU4v~2ydSw1tEKyLfBhpV0mt3D2lPB3I2JCRacDeD5ib6QU-esmhz-kyPE1g7wD0MiolSvMHGVzDVqdrkLAVYEThQa-zUjsmHRt~fscfQbMgdGBG8LGAup98rhLIflwpwT~pMO6nYhRelT5xmSGjcYnkxXn3JDmRfJTESN~cQV9koG7RDjV4vVF68SsDQ0p5T8fTdJsu4y08-gAdYpQdRlNF61qrblCVPoaqV7dmzL4~f~SjqYEVUlpPtbXpL159Bz1lXiB6vC-hK8dz7NkMg0G9rqUU2RaANoFkJsstIXo0Cz~X1OobEUHKlwVVHPHDXsc-3pl8XrWqA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-  String image4 ='https://s3-alpha-sig.figma.com/img/ba33/f986/012c3a4528111744eeedd93dd859e6bf?Expires=1695600000&Signature=gVf6DbSMrceIK7Ti4W--0xmQv9ExHRdclNL4DUMOSfMUaqbKwGzULDARxipmUbhEo764zOynMmkD4MdzojWmuH1LCPVZPQu9Fe91RRTfnNkz3SYD-vWnAwLFjBOVmRYESgez6OwYpwmEhNp0Qy5Il8r-Dx1-akiDklGuF4~beYD6e7XMZB7Wad-TENXrV-7f8nVKvGF-A2FNyns0O-lRifAcPlwK-Cvmj86~iRJ6eigoUA-fiWRy6~npy~f93UKX1TDHQwAd4idpVVmW~kM-8OSedhimIEdHC4nR6OZt~oDk-xn4XL0ZZYA4XVAHovP5szZkCbhvOPViimuFbNpcUQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-  String image5 ='https://s3-alpha-sig.figma.com/img/81ad/4d02/0dca6c18ca643b093ebf1d9146a38070?Expires=1695600000&Signature=ZS~OQ-gCApWqzXnRAwR1F~HTICP-xTschPSMaynkvkTnOLfg9MW8wZNCxSdXtU7Ms93BT-InmD6jQTu3YYZtsm4BhSWef7Jrx8HVCgFDe-BXBxZFeuzKFz4hKozVdKuosTKBediaJayscanyUIPqrfXHPinzS9OSAvy0JeBbmZrCGQFDlFI2MrOkcJ7Sc2t5jxZGRPnocFhrVX24bhLI1xrvz5sfP8liXsjQTuoExSzDgOiBEJnGG0NlycE-YDR6IQPfd3PdS3P2dDfX3DEal-SQdLXI9I60enT1JnBAnRY1EoSH6YtZXpkU4x32OD6SfxzIdi6WffauBne1LY6Ccg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-  String image6 ='https://s3-alpha-sig.figma.com/img/0d6c/b276/144e5c48ba22891570a7ab62512ee225?Expires=1695600000&Signature=Sm3tVrlvRzV4fgsBvM3kD4xC~u9~N-hEpGTSlWliQYTntRs3giBcNVVgYKmUjLjoBijP2DwgKZxU3orJ8ezQXVQv2qeBhLFlUrUx-IEDlPObZu-EieDX6cAxif9qLFtSRRnq9CB~AyBKw1KBtfOMz6tH00iQ8Z~sNnPFadG92pKxXU7h7ILIySS1TUfN7fnz6C~hxKdxKuHwPjn~E9NppWK5xqh0vvAx7iZmr~m45ZlfkZj~GgDutTEoKmqcAkD0~XXHR0QxKAGEDZVRm46V2y46Gn90gHyivmsVhryLS0rPxwF9nW3VVJ4BPyanfadC5VIX48MMKB5RHmwdQnNE6Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-}
+// import 'dart:async';
+// import 'dart:io';
+// import 'package:flutter/material.dart';
+// import 'package:permission_handler/permission_handler.dart';
+// import 'package:photo_gallery/photo_gallery.dart';
+
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatefulWidget {
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   List<Album>? _albums;
+//   bool _loading = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _loading = true;
+//     initAsync();
+//   }
+
+//   Future<void> initAsync() async {
+//     if (await _promptPermissionSetting()) {
+//       List<Album> albums = await PhotoGallery.listAlbums();
+//       setState(() {
+//         _albums = albums;
+//         _loading = false;
+//       });
+//     }
+//     setState(() {
+//       _loading = false;
+//     });
+//   }
+
+//   Future<bool> _promptPermissionSetting() async {
+//     if (Platform.isIOS) {
+//       if (await Permission.photos.request().isGranted || await Permission.storage.request().isGranted) {
+//         return true;
+//       }
+//     }
+//     if (Platform.isAndroid) {
+//       if (await Permission.storage.request().isGranted ||
+//           await Permission.photos.request().isGranted &&
+//               await Permission.videos.request().isGranted) {
+//         return true;
+//       }
+//     }
+//     return false;
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Photo gallery example'),
+//         ),
+//         body: _loading
+//             ? Center(
+//           child: CircularProgressIndicator(),
+//         )
+//             : LayoutBuilder(
+//           builder: (context, constraints) {
+//             double gridWidth = (constraints.maxWidth - 20) / 3;
+//             double gridHeight = gridWidth + 33;
+//             double ratio = gridWidth / gridHeight;
+//             return Container(
+//               padding: EdgeInsets.all(5),
+//               child: GridView.count(
+//                 childAspectRatio: ratio,
+//                 crossAxisCount: 3,
+//                 mainAxisSpacing: 5.0,
+//                 crossAxisSpacing: 5.0,
+//                 children: <Widget>[
+//                   ...?_albums?.map(
+//                         (album) => GestureDetector(
+//                       onTap: () => Navigator.of(context).push(
+//                         MaterialPageRoute(builder: (context) => AlbumPage(album)),
+//                       ),
+//                       child: Column(
+//                         children: <Widget>[
+//                           ClipRRect(
+//                             borderRadius: BorderRadius.circular(5.0),
+//                             child: Container(
+//                               color: Colors.grey[300],
+//                               height: gridWidth,
+//                               width: gridWidth,
+//                               child: FadeInImage(
+//                                 fit: BoxFit.cover,
+//                                 placeholder: MemoryImage(kTransparentImage),
+//                                 image: AlbumThumbnailProvider(
+//                                   album: album,
+//                                   highQuality: true,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           Container(
+//                             alignment: Alignment.topLeft,
+//                             padding: EdgeInsets.only(left: 2.0),
+//                             child: Text(
+//                               album.name ?? "Unnamed Album",
+//                               maxLines: 1,
+//                               textAlign: TextAlign.start,
+//                               style: TextStyle(
+//                                 height: 1.2,
+//                                 fontSize: 16,
+//                               ),
+//                             ),
+//                           ),
+//                           Container(
+//                             alignment: Alignment.topLeft,
+//                             padding: EdgeInsets.only(left: 2.0),
+//                             child: Text(
+//                               album.count.toString(),
+//                               textAlign: TextAlign.start,
+//                               style: TextStyle(
+//                                 height: 1.2,
+//                                 fontSize: 12,
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class AlbumPage extends StatefulWidget {
+//   final Album album;
+
+//   AlbumPage(Album album) : album = album;
+
+//   @override
+//   State<StatefulWidget> createState() => AlbumPageState();
+// }
+
+// class AlbumPageState extends State<AlbumPage> {
+//   List<Medium>? _media;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     initAsync();
+//   }
+
+//   void initAsync() async {
+//     MediaPage mediaPage = await widget.album.listMedia();
+//     setState(() {
+//       _media = mediaPage.items;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           leading: IconButton(
+//             icon: Icon(Icons.arrow_back_ios),
+//             onPressed: () => Navigator.of(context).pop(),
+//           ),
+//           title: Text(widget.album.name ?? "Unnamed Album"),
+//         ),
+//         body: GridView.count(
+//           crossAxisCount: 3,
+//           mainAxisSpacing: 1.0,
+//           crossAxisSpacing: 1.0,
+//           children: <Widget>[
+//             ...?_media?.map(
+//                   (medium) => GestureDetector(
+//                 onTap: () => Navigator.of(context).push(
+//                   MaterialPageRoute(builder: (context) => ViewerPage(medium)),
+//                 ),
+//                 child: Container(
+//                   color: Colors.grey[300],
+//                   child: FadeInImage(
+//                     fit: BoxFit.cover,
+//                     placeholder: MemoryImage(kTransparentImage),
+//                     image: ThumbnailProvider(
+//                       mediumId: medium.id,
+//                       mediumType: medium.mediumType,
+//                       highQuality: true,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class ViewerPage extends StatelessWidget {
+//   final Medium medium;
+
+//   ViewerPage(Medium medium) : medium = medium;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     DateTime? date = medium.creationDate ?? medium.modifiedDate;
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           leading: IconButton(
+//             onPressed: () => Navigator.of(context).pop(),
+//             icon: Icon(Icons.arrow_back_ios),
+//           ),
+//           title: date != null ? Text(date.toLocal().toString()) : null,
+//         ),
+//         body: Container(
+//           alignment: Alignment.center,
+//           child: medium.mediumType == MediumType.image
+//               ? GestureDetector(
+//             onTap: () async {
+//               PhotoGallery.deleteMedium(mediumId: medium.id);
+//             },
+//             child: FadeInImage(
+//               fit: BoxFit.cover,
+//               placeholder: MemoryImage(kTransparentImage),
+//               image: PhotoProvider(mediumId: medium.id),
+//             ),
+//           )
+//               : VideoProvider(
+//             mediumId: medium.id,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class VideoProvider extends StatefulWidget {
+//   final String mediumId;
+
+//   const VideoProvider({
+//     required this.mediumId,
+//   });
+
+//   @override
+//   _VideoProviderState createState() => _VideoProviderState();
+// }
+
+// class _VideoProviderState extends State<VideoProvider> {
+//   VideoPlayerController? _controller;
+//   File? _file;
+
+//   @override
+//   void initState() {
+//     WidgetsBinding.instance.addPostFrameCallback((_) {
+//       initAsync();
+//     });
+//     super.initState();
+//   }
+
+//   Future<void> initAsync() async {
+//     try {
+//       _file = await PhotoGallery.getFile(mediumId: widget.mediumId);
+//       _controller = VideoPlayerController.file(_file!);
+//       _controller?.initialize().then((_) {
+//         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+//         setState(() {});
+//       });
+//     } catch (e) {
+//       print("Failed : $e");
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return _controller == null || !_controller!.value.isInitialized
+//         ? Container()
+//         : Column(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: <Widget>[
+//         AspectRatio(
+//           aspectRatio: _controller!.value.aspectRatio,
+//           child: VideoPlayer(_controller!),
+//         ),
+//         TextButton(
+//           onPressed: () {
+//             setState(() {
+//               _controller!.value.isPlaying ? _controller!.pause() : _controller!.play();
+//             });
+//           },
+//           child: Icon(
+//             _controller!.value.isPlaying ? Icons.pause : Icons.play_arrow,
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
