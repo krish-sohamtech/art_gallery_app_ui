@@ -1,6 +1,6 @@
 // import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
 import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -229,11 +229,125 @@ class GlobalPageState extends State<GlobalPage> {
           ),
           Container(
             alignment: Alignment.centerLeft,
-            child: const Text("Illustrations",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                )),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: const Text("Illustrations",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+          ),
+          Container(
+            // decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+            height: height_ * 0.3,
+            width: width_ * 0.9,
+            child: Center(
+              child: StaggeredGrid.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                children: const [
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        1, // Set cross-axis count to 1 for the left image
+                    mainAxisCellCount:
+                        2, // Set main-axis count to 2 for the left image
+                    child: Image(
+                      image: NetworkImage(
+                        'https://www.shutterstock.com/shutterstock/photos/2265632523/display_1500/stock-photo-david-street-style-graphic-design-textile-artwork-for-t-shirts-pop-art-david-statue-illustration-2265632523.jpg',
+                      ),
+                      fit: BoxFit.cover, // Adjust the fit as needed
+                    ),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        2, // Set cross-axis count to 1 for the right images
+                    mainAxisCellCount:
+                        1, // Set main-axis count to 1 for the right images
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkVWOXXPx1T5N42hIC5EEtJAAd4qKY1hd9Gg&usqp=CAU',
+                      ),
+                      fit: BoxFit.cover, // Adjust the fit as needed
+                    ),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        2, // Set cross-axis count to 1 for the right images
+                    mainAxisCellCount:
+                        1, // Set main-axis count to 1 for the right images
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ-BrK94v--HHiYLRgXDxxGLzhfC5IT8VDJ1oP4l0kq3Xx30duW',
+                      ),
+                      fit: BoxFit.contain, // Adjust the fit as needed
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("Art",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+            height: height_ * 0.35,
+            width: width_ * 0.9,
+            child: Center(
+              child: StaggeredGrid.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                children: const [
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        1, // Set cross-axis count to 1 for the left image
+                    mainAxisCellCount:
+                        2, // Set main-axis count to 2 for the left image
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZxHMgzmy32lobZiLHF6C9leeFWZlU8f3Snw&usqp=CAU',
+                      ),
+                      fit: BoxFit.cover, // Adjust the fit as needed
+                    ),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        2, // Set cross-axis count to 1 for the right images
+                    mainAxisCellCount:
+                        1, // Set main-axis count to 1 for the right images
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMXwXcwzjv6l6kvmR1RLZQFMW2w3fSHxlJ4Q&usqp=CAU',
+                      ),
+                      fit: BoxFit.contain, // Adjust the fit as needed
+                    ),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount:
+                        2, // Set cross-axis count to 1 for the right images
+                    mainAxisCellCount:
+                        1, // Set main-axis count to 1 for the right images
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OSmA_w_TYYpVj1IdbzFzRpZIMuMuHIQg3Q&usqp=CAU',
+                      ),
+                      fit: BoxFit.fill, // Adjust the fit as needed
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

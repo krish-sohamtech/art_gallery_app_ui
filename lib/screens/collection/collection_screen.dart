@@ -1,4 +1,4 @@
-import 'package:art_gallery_app_ui/screens/explore/explore_controller.dart';
+import 'package:art_gallery_app_ui/screens/all_photos/all_photos_controller.dart';
 import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 import 'package:art_gallery_app_ui/screens/viewer_screen/viewer_screen.dart';
 import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
@@ -7,14 +7,15 @@ import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Collection extends StatefulWidget {
+  const Collection({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  // ignore: library_private_types_in_public_api
+  _CollectionState createState() => _CollectionState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CollectionState extends State<Collection> {
   ExploreController controller = Get.put(ExploreController());
 
   @override
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   '${controller.albums_?.length} Albums',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black87,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -200,7 +201,7 @@ class AlbumPageState extends State<AlbumPage> {
           //         bottomLeft: Radius.circular(15),
           //         bottomRight: Radius.circular(15))),
           backgroundColor: data.isDarkMode.value
-              ? Color.fromARGB(255, 22, 20, 20)
+              ? const Color.fromRGBO(22, 20, 20, 1)
               : Colors.white,
           leading: IconButton(
             icon: const Icon(
@@ -210,39 +211,34 @@ class AlbumPageState extends State<AlbumPage> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(widget.album.name ?? "Unnamed Album",
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.cherryRed,
               )),
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
-          child: Container(
-            child: GridView.count(
-              crossAxisCount: 3,
-              mainAxisSpacing: 2.0,
-              crossAxisSpacing: 2.5,
-              children: <Widget>[
-                ...?_media?.map(
-                  (medium) => GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => ViewerPage(medium)),
-                    ),
-                    child: Container(
-                      child: FadeInImage(
-                        fit: BoxFit.cover,
-                        placeholder: MemoryImage(kTransparentImage),
-                        image: ThumbnailProvider(
-                          mediumId: medium.id,
-                          mediumType: medium.mediumType,
-                          highQuality: true,
-                        ),
-                      ),
+          child: GridView.count(
+            crossAxisCount: 3,
+            mainAxisSpacing: 2.0,
+            crossAxisSpacing: 2.5,
+            children: <Widget>[
+              ...?_media?.map(
+                (medium) => GestureDetector(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ViewerPage(medium)),
+                  ),
+                  child: FadeInImage(
+                    fit: BoxFit.cover,
+                    placeholder: MemoryImage(kTransparentImage),
+                    image: ThumbnailProvider(
+                      mediumId: medium.id,
+                      mediumType: medium.mediumType,
+                      highQuality: true,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
