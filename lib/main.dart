@@ -4,7 +4,7 @@ import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'bottom_app_bar/bottom_navbar.dart';
+import 'bottom_app_bar/main_screen.dart';
 
 void main() {
   runApp(
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: themeController.isDarkMode.value
             ? ThemeData.dark()
             : ThemeData.light(),
-        home: const BottomNavBar(),
+        home: const MainScreen(),
       ),
     );
   }

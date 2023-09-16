@@ -1,7 +1,6 @@
 import 'package:art_gallery_app_ui/screens/all_photos/all_photos_controller.dart';
 import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 import 'package:art_gallery_app_ui/screens/viewer_screen/viewer_screen.dart';
-import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
@@ -16,28 +15,26 @@ class Collection extends StatefulWidget {
 }
 
 class _CollectionState extends State<Collection> {
-  ExploreController controller = Get.put(ExploreController());
+  AllPhotosController photosController = Get.put(AllPhotosController());
 
   @override
   void initState() {
     super.initState();
-    controller.loading_.value;
-    // _loading = true;
-    initAsync();
+    if (photosController.loading_.value) {
+      initAsync();
+    }
   }
 
   Future<void> initAsync() async {
     List<Album> albums = await PhotoGallery.listAlbums();
-    // setState(() {
-    // _albums = albums;
-    // _loading = false;
-    // });
-    controller.changeallalbums(albums);
-    controller.changeLoading();
+
+    photosController.setAllAlbums(albums);
+    photosController.setLoading(false);
   }
 
   @override
   Widget build(BuildContext context) {
+    ThemeController themeController = Get.put(ThemeController());
     return Column(
       children: [
         Padding(
@@ -47,10 +44,12 @@ class _CollectionState extends State<Collection> {
             children: [
               Container(
                 alignment: Alignment.topLeft,
-                child: const Text(
+                child: Text(
                   "Collection",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: themeController.isDarkMode.value
+                          ? const Color.fromRGBO(241, 239, 239, 1)
+                          : const Color.fromRGBO(1, 1, 1, 1),
                       fontSize: 50,
                       fontWeight: FontWeight.bold),
                 ),
@@ -58,9 +57,11 @@ class _CollectionState extends State<Collection> {
               Container(
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  '${controller.albums_?.length} Albums',
-                  style: const TextStyle(
-                      color: Colors.black87,
+                  '${photosController.albums_?.length} Albums',
+                  style: TextStyle(
+                      color: themeController.isDarkMode.value
+                          ? const Color.fromRGBO(241, 239, 239, 1)
+                          : const Color.fromRGBO(1, 1, 1, 1),
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
@@ -74,7 +75,7 @@ class _CollectionState extends State<Collection> {
         Expanded(
           child: Obx(
             () => Center(
-              child: controller.loading_.value
+              child: photosController.loading_.value
                   ? const Center(
                       child: CircularProgressIndicator(),
                     )
@@ -92,7 +93,7 @@ class _CollectionState extends State<Collection> {
                             mainAxisSpacing: 5.0,
                             crossAxisSpacing: 5.0,
                             children: <Widget>[
-                              ...?controller.albums_?.map(
+                              ...?photosController.albums_?.map(
                                 (album) => GestureDetector(
                                   onTap: () => Navigator.of(context).push(
                                     MaterialPageRoute(
@@ -167,7 +168,7 @@ class _CollectionState extends State<Collection> {
 class AlbumPage extends StatefulWidget {
   final Album album;
 
-  AlbumPage(Album album, {super.key}) : album = album;
+  const AlbumPage(this.album, {super.key});
 
   @override
   State<StatefulWidget> createState() => AlbumPageState();
@@ -184,9 +185,7 @@ class AlbumPageState extends State<AlbumPage> {
 
   void initAsync() async {
     MediaPage mediaPage = await widget.album.listMedia();
-    setState(() {
-      _media = mediaPage.items;
-    });
+     AllPhotosController().setMedia(mediaPage.items);
   }
 
   ThemeController data = Get.put(ThemeController());
@@ -194,25 +193,24 @@ class AlbumPageState extends State<AlbumPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: Colors.black,
         appBar: AppBar(
-          // shape: const RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.only(
-          //         bottomLeft: Radius.circular(15),
-          //         bottomRight: Radius.circular(15))),
           backgroundColor: data.isDarkMode.value
               ? const Color.fromRGBO(22, 20, 20, 1)
               : Colors.white,
           leading: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios,
-              color: AppColors.cherryRed,
+              color: data.isDarkMode.value
+                  ? const Color.fromRGBO(241, 239, 239, 1)
+                  : const Color.fromRGBO(1, 1, 1, 1),
             ),
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(widget.album.name ?? "Unnamed Album",
-              style: const TextStyle(
-                color: AppColors.cherryRed,
+              style: TextStyle(
+                color: data.isDarkMode.value
+                    ? const Color.fromRGBO(241, 239, 239, 1)
+                    : const Color.fromRGBO(1, 1, 1, 1),
               )),
         ),
         body: Padding(

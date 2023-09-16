@@ -1,5 +1,4 @@
 // import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
-import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -19,10 +18,9 @@ class GlobalPageState extends State<GlobalPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-
           Container(
             alignment: Alignment.centerLeft,
             child: const Padding(
@@ -35,12 +33,14 @@ class GlobalPageState extends State<GlobalPage> {
                   )),
             ),
           ),
-          const Text("Following galleries to power up your art careere",
+          const Text(
+            "Following galleries to power up your art career",
               style: TextStyle(
                 color: Color.fromRGBO(151, 158, 166, 1),
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
-              )),
+              ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -54,14 +54,14 @@ class GlobalPageState extends State<GlobalPage> {
                       gradient: LinearGradient(colors: [
                         // AppColors.cherryRed,
 
-                        Color.fromARGB(255, 247, 131, 131),
-                        AppColors.cherryRed,
+                        Color.fromRGBO(247, 131, 131, 1),
+                        Color.fromRGBO(250, 36, 36, 1),
                       ])),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
                       children: [
-                        const Text(" painting",
+                        const Text("painting",
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,
@@ -88,14 +88,14 @@ class GlobalPageState extends State<GlobalPage> {
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       gradient: LinearGradient(colors: [
-                        Color.fromARGB(255, 247, 131, 131),
-                        AppColors.cherryRed
+                        Color.fromRGBO(247, 131, 131, 1),
+                        Color.fromRGBO(250, 36, 36, 1)
                       ])),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
                       children: [
-                        const Text(" Illustration",
+                        const Text("Illustration",
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,
@@ -229,17 +229,17 @@ class GlobalPageState extends State<GlobalPage> {
           ),
           Container(
             alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const Text("Illustrations",
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("Illustrations",
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   )),
             ),
           ),
-          Container(
-            // decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+          SizedBox(
+            
             height: height_ * 0.3,
             width: width_ * 0.9,
             child: Center(

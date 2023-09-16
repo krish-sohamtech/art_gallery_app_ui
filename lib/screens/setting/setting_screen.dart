@@ -2,11 +2,15 @@ import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SettingsPage extends StatelessWidget {
-  final ThemeController themeController = Get.find();
+class SettingScreen extends StatefulWidget {
+  const SettingScreen({super.key});
 
-   SettingsPage({super.key});
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
 
+class _SettingScreenState extends State<SettingScreen> {
+  ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,12 +20,16 @@ class SettingsPage extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.topLeft,
-            child: const Text(
-              "Setting",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold),
+            child: Obx(
+              () => Text(
+                "Setting",
+                style: TextStyle(
+                    color: themeController.isDarkMode.value
+                        ? const Color.fromRGBO(241, 239, 239, 1)
+                        : const Color.fromRGBO(1, 1, 1, 1),
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           Obx(

@@ -1,18 +1,25 @@
-import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
-import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
+import 'package:art_gallery_app_ui/screens/setting/theme_controller.dart';
 
 class ViewerPage extends StatelessWidget {
   final Medium medium;
+  const ViewerPage(this.medium, {super.key});
 
-  const ViewerPage(Medium medium, {super.key}) : medium = medium;
+  void deleteImage() async {
+    try {
+      print(medium.id);
+      await PhotoGallery.deleteMedium(mediumId: medium.id)
+          .whenComplete(() => Navigator.of(Get.context!).pop());
+    } catch (e) {
+      print("Error deleting image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     ThemeController data = Get.put(ThemeController());
-    @override
     DateTime? date = medium.creationDate ?? medium.modifiedDate;
     return Scaffold(
       appBar: AppBar(
@@ -20,9 +27,11 @@ class ViewerPage extends StatelessWidget {
             ? const Color.fromRGBO(22, 20, 20, 1)
             : Colors.white,
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
-            color: AppColors.cherryRed,
+            color: data.isDarkMode.value
+                ? const Color.fromRGBO(241, 239, 239, 1)
+                : const Color.fromRGBO(1, 1, 1, 1),
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -30,30 +39,39 @@ class ViewerPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
-                onTap: () {
-                  PhotoGallery.deleteMedium(mediumId: medium.id);
-                },
-                child: const Icon(
-                  Icons.delete,
-                  color: AppColors.cherryRed,
-                )),
+              onTap: deleteImage, // Call the deleteImage method here
+              child: Icon(
+                Icons.delete,
+                color: data.isDarkMode.value
+                    ? const Color.fromRGBO(241, 239, 239, 1)
+                    : const Color.fromRGBO(1, 1, 1, 1),
+              ),
+            ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Icon(
               Icons.favorite_border,
-              color: AppColors.cherryRed,
+              color: data.isDarkMode.value
+                  ? const Color.fromRGBO(241, 239, 239, 1)
+                  : const Color.fromRGBO(1, 1, 1, 1),
             ),
           ),
           PopupMenuButton(
-            color: AppColors.cherryRed,
+            color: data.isDarkMode.value
+                ? const Color.fromRGBO(241, 239, 239, 1)
+                : const Color.fromRGBO(1, 1, 1, 1),
             itemBuilder: (context) => [],
           )
         ],
         title: date != null
             ? Text(
                 '${date.day}/${date.month}/${date.year.toString()}',
-                style: const TextStyle(color: AppColors.cherryRed),
+                style: TextStyle(
+                  color: data.isDarkMode.value
+                      ? const Color.fromRGBO(241, 239, 239, 1)
+                      : const Color.fromRGBO(1, 1, 1, 1),
+                ),
               )
             : null,
       ),
@@ -63,19 +81,10 @@ class ViewerPage extends StatelessWidget {
           alignment: Alignment.center,
           child: medium.mediumType == MediumType.image
               ? GestureDetector(
-                  // onTap: () async {
-                  //   PhotoGallery.deleteMedium(mediumId: medium.id);
-                  // },
                   child: Image(
                     fit: BoxFit.cover,
-                    // placeholder: MemoryImage(kTransparentImage),
                     image: PhotoProvider(mediumId: medium.id),
                   ),
-                  // child: FadeInImage(
-                  //   fit: BoxFit.cover,
-                  //   placeholder: MemoryImage(kTransparentImage),
-                  //   image: PhotoProvider(mediumId: medium.id),
-                  // ),
                 )
               : null,
         ),

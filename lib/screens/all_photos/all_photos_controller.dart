@@ -1,21 +1,19 @@
 import 'package:get/get.dart';
 import 'package:photo_gallery/photo_gallery.dart';
-
-class ExploreController extends GetxController {
+class AllPhotosController extends GetxController {
   List<Medium>? media;
   List<Album>? albums_;
-
-   var loading_ = true.obs;
-void changeLoading() {
-    loading_.value = false;
+  RxBool loading_ = true.obs;
+void setLoading(bool value) {
+    loading_.value = value;
   }
 
-  void changeMedia(var allMedia) {
+  void setMedia( List<Medium> allMedia) {
     media = allMedia;
   }
-  void changeallalbums(var albums) {
+  
+  void setAllAlbums(List<Album> albums) {
     albums_ = albums;
   }
  }
-
  

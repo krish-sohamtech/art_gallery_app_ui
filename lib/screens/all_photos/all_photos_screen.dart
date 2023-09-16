@@ -18,7 +18,7 @@ class AllPhotosScreen extends StatefulWidget {
 }
 
 class _AllPhotosScreenState extends State<AllPhotosScreen> {
-  ExploreController controller = Get.put(ExploreController());
+  AllPhotosController controller = Get.put(AllPhotosController());
 
   @override
   void initState() {
@@ -35,16 +35,12 @@ class _AllPhotosScreenState extends State<AllPhotosScreen> {
         MediaPage mediaPage = await album.listMedia();
         allMedia.addAll(mediaPage.items);
       }
-      // setState(() {
-      controller.changeLoading();
-      controller.changeMedia(allMedia);
-      // media = allMedia; // Assign _media here
-      // });
+   
+      controller.setLoading(false);
+      controller.setMedia(allMedia);
+   
     } else {
-      controller.changeLoading();
-      // setState(() {
-      //   _loading = false;
-      // });
+           controller.setLoading(false);
     }
   }
 
@@ -95,7 +91,7 @@ class _AllPhotosScreenState extends State<AllPhotosScreen> {
                       padding:
                           const EdgeInsets.only(top: 8.0, left: 8, right: 8),
                       child: Container(
-                        color: const Color.fromARGB(255, 240, 238, 238),
+                        color: const Color.fromRGBO(240, 238, 238, 1),
                         child: Column(
                           children: [
                             Expanded(
@@ -106,38 +102,35 @@ class _AllPhotosScreenState extends State<AllPhotosScreen> {
                                   double gridHeight = gridWidth + 33;
                                   // ignore: unused_local_variable
                                   double ratio = gridWidth / gridHeight;
-                                  return Container(
-                                    // padding: EdgeInsets.all(2),
-                                    child: GridView.count(
-                                      crossAxisCount: 3,
-                                      mainAxisSpacing: 2.0,
-                                      crossAxisSpacing: 2.5,
-                                      children: <Widget>[
-                                        ...?controller.media?.map(
-                                          (medium) => GestureDetector(
-                                            onTap: () =>
-                                                Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      ViewerPage(medium)),
-                                            ),
-                                            child: Container(
-                                              color: Colors.black,
-                                              child: FadeInImage(
-                                                fit: BoxFit.cover,
-                                                placeholder: MemoryImage(
-                                                    kTransparentImage),
-                                                image: ThumbnailProvider(
-                                                  mediumId: medium.id,
-                                                  mediumType: medium.mediumType,
-                                                  highQuality: true,
-                                                ),
+                                  return GridView.count(
+                                    crossAxisCount: 3,
+                                    mainAxisSpacing: 2.0,
+                                    crossAxisSpacing: 2.5,
+                                    children: <Widget>[
+                                      ...?controller.media?.map(
+                                        (medium) => GestureDetector(
+                                          onTap: () =>
+                                              Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ViewerPage(medium)),
+                                          ),
+                                          child: Container(
+                                            color: Colors.black,
+                                            child: FadeInImage(
+                                              fit: BoxFit.cover,
+                                              placeholder: MemoryImage(
+                                                  kTransparentImage),
+                                              image: ThumbnailProvider(
+                                                mediumId: medium.id,
+                                                mediumType: medium.mediumType,
+                                                highQuality: true,
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   );
                                 },
                               ),
